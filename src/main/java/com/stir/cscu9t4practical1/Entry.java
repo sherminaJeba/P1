@@ -3,43 +3,44 @@ package com.stir.cscu9t4practical1;
 
 import java.util.Calendar;
 public class Entry {
-  private String name;
-  private Calendar dateAndTime;
-  private float distance;
+  protected String name;
+  protected Calendar dateAndTime;
+  protected float distance;
   
   public Entry (String n, int d, int m, int y, int h, int min, int s, float dist) {
 	  name = n;
 	  Calendar inst = Calendar.getInstance();
+	  inst.set(y,m-1,d,h,min,s);
 	  dateAndTime = inst;
-    distance = dist;
+      distance = dist;
   } //constructor
   
-  public String getName () {
+  public String getName() {
 	    return name;
 	  } //getName
 	  
-	  public int getDay () {
+	  public int getDay() {
 	    return dateAndTime.get(Calendar.DATE);
 	  } //getDay
 	  
-	  public int getMonth () {
+	  public int getMonth() {
 	    int month =  dateAndTime.get(Calendar.MONTH) + 1;
 	    return month;
 	  } //getMonth
 	  
-	  public int getYear () {
+	  public int getYear() {
 	    return dateAndTime.get(Calendar.YEAR);
 	  } //getYear
 
-	  public int getHour () {
+	  public int getHour() {
 	    return dateAndTime.get(Calendar.HOUR);
 	  } //getHour
 
-	  public int getMin () {
+	  public int getMin() {
 	    return dateAndTime.get(Calendar.MINUTE);
 	  } //getMin
 
-	  public int getSec () {
+	  public int getSec() {
 	    return dateAndTime.get(Calendar.SECOND);
 	  } //getSec
 
@@ -48,7 +49,7 @@ public class Entry {
 	  } //getYear
 
 
-  public String getEntry () {
+  public String getEntry() {
    String result = getName()+" ran " + getDistance() + " km in "
              +getHour()+":"+getMin()+":"+ getSec() + " on "
              +getDay()+"/"+getMonth()+"/"+getYear()+"\n";
